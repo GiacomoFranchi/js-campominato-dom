@@ -28,4 +28,20 @@ al click viene dichiarata la funzione "game" che come parametri ha il numero mas
          a ogni ciclo viene generato un elemento div a cui verra associata la classe box e prenderà come valore in HTML la variabile "i"
         Utilizzando .append inserire la variabile box all'interno di container così da visualizzare ogni box nella pagina 
     - creare un event listener che si attiva al click di un elemento box
-    
+3. Creare la funzione genRandomNum che genrea numeri random comresi fra i parametri minimo e massimo 
+4. Creare una funzione che associa le bombe ai numeri
+    - creare un ciclo while che continua finche l'array delle bombe non arriva a 16 elementi
+    - a cogni ciclo controllare che il nuovo numero non sia già presente nell'array
+    -riportare l'array numBom
+5. all'interno della funzione game creare un event listener che si attiva al click su un elemento box
+6dichiareare la variabile "cati" che corrisponde al testo contenuto nel box cliccato
+6. inserire nel eventlistener la funzione già cliccato che controlla che non vengano inseriti per 2 volte gli stessi numeri
+7. creare un ciclo if per cui 
+    - se il testo di "cati" è già presente nell'array bombe allora il box diventa rosso e il giocatore perde
+    - altrimenti se
+        - la lunghezza dell'array contenente i numeri cliccati è minore del numero massimo meno le 16 bombe allora colora lo sfondo di blu
+        - se è uguale allora il gioco finisce e il giocatore ha vinto
+
+## Output
+associare a <p> in HTML la stringa "hai perso in x mosse" se il giocatore perde
+e "hai vinto" se il giocatore vince

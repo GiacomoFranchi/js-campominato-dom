@@ -38,6 +38,7 @@ button{
     flex-wrap: wrap;
     flex-grow: 1;
     background-color: lightsalmon;
+    position: relative;
 }
 
 .box100, .box81, .box49{
@@ -66,6 +67,19 @@ button{
 }
 
 .hidden{
-    display: none;
-    color: red;
+    transform: scale(0.5);
+
 }
+
+.red{
+    background-color: red;
+}
+
+p{
+    text-align: center;
+    font-size: 3rem;
+    color: darkcyan;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+
+}
+
