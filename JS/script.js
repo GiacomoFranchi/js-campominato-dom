@@ -1,79 +1,58 @@
+//Easy
 document.getElementById("play").addEventListener("click", function(){
-    game(100, "box100")
+    game(100, "box100");
 })
-
+//Mid
 document.getElementById("play2").addEventListener("click", function(){
-    game(81, "box81")
-    })
-
-
-document.getElementById("play3").addEventListener("click", function(){
-    game(49, "box49")
-   
+    game(81, "box81");
 })
-
-let cliccati = [];
-
-
-
-
+//Hard
+document.getElementById("play3").addEventListener("click", function(){
+    game(49, "box49");
+})
 
 //Funzioni 
-
 //FUNZIONE PRINCIPALE 
 function game (max, classe){
     const container = document.querySelector(".container")
     container.innerHTML = "";
     container.classList.remove("hidden")
     const box = "";
-
+    cliccati = [];
     const p = document.querySelector(".testo")
     p.innerHTML = "";
     bombe =  boomNum(max);
-    console.log(bombe, typeof bombe);
     const maxClick = max - bombe.length 
-    console.log(maxClick);    
+    console.log(bombe, maxClick);
 
     for(let i = 1; i <= max; i++){
         const box = document.createElement("div")
         box.classList.add(classe)
         box.innerHTML = i
 
-        container.append(box)    
+        container.append(box)  
 
         box.addEventListener("click", function(){
             let cati = parseInt(this.textContent)
             giàCliccato(cati);
             console.log(cliccati, bombe);
             tap = cliccati.length
-            let cicli = 1;
 
             if(bombe.includes(cati)){
                 this.classList.add("red");
                 p.innerHTML= `Hai perso in ${tap} mosse`
                 container.classList.add("hidden")
-                cicli = cicli;
             }else{
-                
-                if(cliccati.length < maxClick){
-                    this.classList.add("blue")
-                }else{
-                    this.classList.add("blue")
-                    p.innerHTML= `Hai vinto!!`
-                    
-                }
+                strisciaVincente(this, maxClick);
             }
         })
     }
 }
 
-
-
 // Crea numeri random per bombe
 function genRandomNum (max){
     return Math.floor(Math.random()* (max - 1)) + 1;
 }
-
 // Funzione genera Bombe
 function boomNum (max){
     const numBom = [];
@@ -87,8 +66,7 @@ function boomNum (max){
     //console.log(numBom);
     return numBom;
 }
-
-
+// Lista numeri cliccati
 function giàCliccato(cati){
 
     if(!cliccati.includes(cati)){
@@ -96,3 +74,13 @@ function giàCliccato(cati){
     } else{
         alert("già cliccato")}
     }
+// Segna i numeri vincenti
+function strisciaVincente (elemento, maxClick){
+    const testo = document.querySelector(".testo")
+    if(cliccati.length < maxClick){
+        elemento.classList.add("blue")
+    }else{
+        elemento.classList.add("blue")
+        testo.innerHTML= `Hai vinto!!` 
+    }
+}
